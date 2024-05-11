@@ -15,7 +15,7 @@ const ContactsComponent = (contactsParameter) => {
     
 };
 
-    const showPages = (type) => {
+    const showPages = (type, customPage = null) => {
         let valReturn ='';
         let totalized = inputValue === '' ? contactsParameter.contactsParameter.length : contactsParameter.contactsParameter.filter(contact => contact.name.toLowerCase().includes(inputValue.toLowerCase())).length;
         const totalPages = Math.ceil(totalized / itemsPerPage);
@@ -30,7 +30,7 @@ const ContactsComponent = (contactsParameter) => {
                 valReturn = [startIndex,endIndex];
             }
         }
-        else {
+        if (type === 2) {
             if(currentPage < totalPages - 1) {
                 currentPage = currentPage + 1;
                 const newStartvalue = currentPage * itemsPerPage;
@@ -41,6 +41,15 @@ const ContactsComponent = (contactsParameter) => {
                 valReturn = [startIndex,endIndex];
             }
         }
+        
+        if(type === 3) {
+            currentPage = customPage;
+            const newStartvalue = currentPage * itemsPerPage;
+            const newEndvalue = newStartvalue + itemsPerPage;
+            valReturn = [newStartvalue, newEndvalue];
+
+        }
+
         let activeElement = type === 1 ? document.querySelector('.btn-active').previousElementSibling : document.querySelector('.btn-active').nextElementSibling;
         if (activeElement !== null) activeElement.scrollIntoView();
         return valReturn;
@@ -80,18 +89,18 @@ const ContactsComponent = (contactsParameter) => {
                 </table>
                 </div>
                 <div className='d-flex mx-auto p-3 w-50'>
-                <button className='btn btn-dark arrow-button' onClick={() => {const valIndex = showPages(1);setStart(valIndex[0]);setEnd(valIndex[1]);console.log(startIndex+"--"+endIndex);}}>&lt;</button>
+                <button className='btn btn-dark arrow-button' onClick={() => {const valIndex = showPages(1);setStart(valIndex[0]);setEnd(valIndex[1]);}}>&lt;</button>
                 <div className='mx-auto buttons-content d-flex flex-row'>
                 {
                     inputValue === "" ? Array.apply(0, Array(Math.ceil(contactsParameter.contactsParameter.length / itemsPerPage))).map(function(x,i){
-                        return <button className={ i === currentPage ? 'btn-active arrow-button btn btn-dark' : 'arrow-button btn btn-dark'}>{i+1}</button>
+                        return <button className={ i === currentPage ? 'btn-active arrow-button btn btn-dark' : 'arrow-button btn btn-dark'} onClick={() => {const valIndex = showPages(3, i);setStart(valIndex[0]);setEnd(valIndex[1])}}>{i+1}</button>
                     }) :
                     Array.apply(0, Array(Math.ceil(contactsParameter.contactsParameter.filter(contact => contact.name.toLowerCase().includes(inputValue.toLowerCase())).length / itemsPerPage))).map(function(x,i){
                         return <button className={ i === currentPage ? 'btn-active arrow-button btn btn-dark' : 'arrow-button btn btn-dark'}>{i+1}</button>
                     }) 
                 }
                 </div>
-                <button className='btn btn-dark arrow-button' onClick={() => {const valIndex = showPages(2);setStart(valIndex[0]);setEnd(valIndex[1]);console.log(startIndex+"--"+endIndex);}}>&gt;</button>
+                <button className='btn btn-dark arrow-button' onClick={() => {const valIndex = showPages(2);setStart(valIndex[0]);setEnd(valIndex[1]);}}>&gt;</button>
                 </div>
             </div>
     )
