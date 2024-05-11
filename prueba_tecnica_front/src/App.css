@@ -21,8 +21,14 @@ body {
 .table-container {
   width: 95%;
   height:fit-content;
-  max-height: 650px;
+  max-height: 550px;
   overflow-y: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .custom-table {
@@ -117,12 +123,30 @@ body {
   width: 1px;
 }
 
+.arrow-button {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+
 .arrow-button:hover {
       background: #23F51D !important;
 }
 
 .btn-active {
     background: #036D00 !important;
+}
+
+.buttons-content {
+  overflow-x: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  max-width: 50%; 
+  width: fit-content;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 
