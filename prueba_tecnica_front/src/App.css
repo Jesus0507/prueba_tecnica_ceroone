@@ -3,11 +3,12 @@ body {
 }
 
 .main-container {
-  width: 100%;
+  width: 95%;
   height: fit-content;
-  background:rgba(255,255,255, 0.2);
+  background:rgba(0,0,0, 0.9);
   border-radius: 20px;
   margin: 100px auto 100px auto;
+  padding: 30px;
 
   .btn-dark {
     width: 200px;
@@ -147,6 +148,20 @@ body {
   ::-webkit-scrollbar {
     display: none;
   }
+
+  button {
+    margin-right: 5px;
+  }
 }
+
+.select-style {
+  font-size: 20px !important;
+  color: white !important;
+  border: 2px  #23F51D solid !important;
+  cursor: pointer;
+  background: #202020 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px !important;
+}
+
+
 
 

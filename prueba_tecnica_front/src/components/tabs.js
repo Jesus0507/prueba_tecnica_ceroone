@@ -121,9 +121,9 @@ setAccounts(response.data.sort((a, b) => (a.accountNumber > b.accountNumber? 1 :
         <span className="indicador"></span>
       </ul>
       <div className="tab-content">
-        {activetab === 0 && <div className='w-100'>{contacts.length === 0 ? 'Loading...' : <ContactsComponent contactsParameter={contacts}/>}</div>}
-        {activetab === 1 && <div className="table-container">{invoices.length === 0 || purchase.length ===0 ? 'Loading...' : <InvoicesComponent invoicesParameter={invoicesParameter}/>}</div>}
-        {activetab === 2 && <div className="table-container">{accounts.length === 0 ? 'Loading...' : <AccountsComponent accountsParameter={accounts}/>}</div>}
+        {activetab === 0 && <div className='w-100'>{contacts.length === 0 ? <h3 className='text-light'>Loading...</h3> : <ContactsComponent contactsParameter={contacts}/>}</div>}
+        {activetab === 1 && <div className="w-100">{invoices.length === 0 || purchase.length ===0 ? 'Loading...' : <InvoicesComponent invoicesParameter={invoicesParameter}/>}</div>}
+        {activetab === 2 && <div className="w-100">{accounts.length === 0 ? 'Loading...' : <AccountsComponent accountsParameter={accounts}/>}</div>}
       </div>
     </div>
   );
