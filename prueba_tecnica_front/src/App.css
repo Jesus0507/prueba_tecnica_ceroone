@@ -220,14 +220,22 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'custom-font';
+  src: url('../public/fonts/exwayer.regular.ttf') format('truetype'),
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
 .neon-title {
+  font-size: 60px !important;
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px;
   border: none;
-  font-family: "Segoe Script";
+  font-family: 'custom-font', sans-serif;
   color: rgba(255,255,255,1);
   text-decoration: normal;
   text-align: center;
