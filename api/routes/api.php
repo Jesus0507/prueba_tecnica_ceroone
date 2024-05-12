@@ -8,8 +8,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::controller(PostController::class) -> group(function() {
-    Route::get('/contacts','getContacts');
-    Route::get('/invoices','getInvoices');
-    Route::get('/accounts','getAccounts');
-    Route::get('/purchase','getPurchase');
+    Route::get('/contacts','getContacts')->name('contactsRequest');
+    Route::get('/invoices','getInvoices')->name('invoicesRequest');
+    Route::get('/accounts','getAccounts')->name('accountsRequest');;
+    Route::get('/purchase','getPurchase')->name('purchaseRequest');
 });
