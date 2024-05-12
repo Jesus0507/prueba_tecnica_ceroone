@@ -105,14 +105,14 @@ const AccountsComponent = (accountsParameter) => {
                             inputValue === '' ?
                                 selectedItemDesde === "0" || selectedItemHasta === "0" ? accountsParameter.accountsParameter.filter((account, index) => index >= startIndex && index <= endIndex).map((account) => (
                                     <tr key={account.id}>
-                                        <td className='w-25'> {account.name} </td>
+                                        <td className='w-25 text-uppercase'> {account.name} </td>
                                         <td className='w-25'> {account.type} </td>
                                         <td className='w-25'> {account.accountNumber} </td>
                                         <td className='w-25'> {account.balance} </td>
                                     </tr>
                                 )) : accountsParameter.accountsParameter.filter(account => (account.accountNumber >= selectedItemDesde && account.accountNumber <= selectedItemHasta)).filter((account, index) => index >= startIndex && index <= endIndex).map((account) => (
                                     <tr key={account.id}>
-                                        <td className='w-25'> {account.name} </td>
+                                        <td className='w-25 text-uppercase'> {account.name} </td>
                                         <td className='w-25'> {account.type} </td>
                                         <td className='w-25'> {account.accountNumber} </td>
                                         <td className='w-25'> {account.balance} </td>
@@ -120,7 +120,7 @@ const AccountsComponent = (accountsParameter) => {
                                 ))
                                 : selectedItemDesde === "0" || selectedItemHasta === "0" ? accountsParameter.accountsParameter.filter(account => (account.name.toLowerCase().includes(inputValue.toLowerCase()) || account.accountNumber.toString().includes(inputValue.toLowerCase()))).filter((account, index) => index >= startIndex && index <= endIndex).map((account) => (
                                     <tr key={account.id}>
-                                        <td className='w-25'> {account.name} </td>
+                                        <td className='w-25 text-uppercase'> {account.name} </td>
                                         <td className='w-25'> {account.type} </td>
                                         <td className='w-25'> {account.accountNumber} </td>
                                         <td className='w-25'> {account.balance} </td>
@@ -128,7 +128,7 @@ const AccountsComponent = (accountsParameter) => {
                                 )) :
                                     accountsParameter.accountsParameter.filter(account => (account.name.toLowerCase().includes(inputValue.toLowerCase()) || account.accountNumber.toString().includes(inputValue.toLowerCase())) && (account.accountNumber >= selectedItemDesde && account.accountNumber <= selectedItemHasta)).filter((account, index) => index >= startIndex && index <= endIndex).map((account) => (
                                         <tr key={account.id}>
-                                            <td className='w-25'> {account.name} </td>
+                                            <td className='w-25 text-uppercase'> {account.name} </td>
                                             <td className='w-25'> {account.type} </td>
                                             <td className='w-25'> {account.accountNumber} </td>
                                             <td className='w-25'> {account.balance} </td>
